@@ -38,3 +38,5 @@ api.addResponseTransform(response => {
         }
     }
 });
+
+export default api;

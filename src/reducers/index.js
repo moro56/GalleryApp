@@ -1,7 +1,9 @@
 import {combineReducers} from 'redux';
 
-const rootReducer = combineReducers({
+import galleryReducer from "./galleryReducer";
 
+const rootReducer = combineReducers({
+    galleryReducer
 });
 
 export default rootReducer;

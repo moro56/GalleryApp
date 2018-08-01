@@ -1,1 +1,1 @@
-PhotoApp
+Gallery App

@@ -13,6 +13,7 @@
     "react-native": "0.55.4",
     "react-native-platform-touchable": "^1.1.1",
     "react-native-root-toast": "^3.0.1",
+    "react-native-transformable-image": "https://github.com/dflourusso/react-native-transformable-image.git",
     "react-navigation": "^2.9.3",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",

@@ -11,6 +11,8 @@ export const LOAD_ERROR = "LOAD_ERROR";
 
 export const SELECT_ALBUM = "SELECT_ALBUM";
 
+export const SELECT_PHOTO = "SELECT_PHOTO";
+
 async function retrieveDataFromStorage() {
     try {
         const data = await AsyncStorage.getItem(SAVED_DATA_KEY);

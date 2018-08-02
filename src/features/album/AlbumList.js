@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     }
 });
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
     return {
         loading: state.galleryReducer.loading,
         albums: state.galleryReducer.gallery

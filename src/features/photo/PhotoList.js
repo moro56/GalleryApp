@@ -1,10 +1,7 @@
 import React from "react";
 import {StyleSheet, View, Image, Text, FlatList, Dimensions} from "react-native";
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Touchable from 'react-native-platform-touchable';
-
-import * as actions from "../../actions";
 
 const LIST_NUM_COLUMNS_PORTRAIT = 3;
 const LIST_NUM_COLUMNS_LANDSCAPE = 5;
@@ -56,14 +53,16 @@ class PhotoList extends React.Component {
         });
     };
 
-    _renderItem = ({item: {photo: {id, thumbnailUrl}}}) => {
+    _renderItem = ({item: {photo}}) => {
+        const {navigation} = this.props;
         const {viewDimension} = this.state;
 
         return (
             <Touchable onPress={() => {
+                navigation.navigate("PhotoDetails", {photo});
             }}>
                 <View style={[styles.imageContainer, {width: viewDimension, height: viewDimension}]}>
-                    <Image key={id} style={styles.image} source={{uri: thumbnailUrl}}/>
+                    <Image key={photo.id} style={styles.image} source={{uri: photo.thumbnailUrl}}/>
                 </View>
             </Touchable>
         );
@@ -99,15 +98,11 @@ const styles = StyleSheet.create({
     }
 });
 
-function mapStateToProps(state, props) {
+function mapStateToProps(state) {
     return {
         albums: state.galleryReducer.gallery,
         selectedAlbumId: state.galleryReducer.selectedAlbumId
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(actions.galleryActions, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PhotoList);
+export default connect(mapStateToProps, null)(PhotoList);

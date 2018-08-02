@@ -16,8 +16,8 @@ class AlbumList extends React.Component {
     };
 
     state = {
-        width: Dimensions.get('window').width,
-        numColumns: 2
+        width: 0,
+        numColumns: LIST_NUM_COLUMNS_PORTRAIT
     };
 
     componentDidMount() {
@@ -46,11 +46,14 @@ class AlbumList extends React.Component {
     };
 
     _renderItem = ({item: {album: {id, title, photos}}}) => {
+        const {navigation} = this.props;
         const {width, numColumns} = this.state;
         const viewDimension = width / numColumns;
 
         return (
             <Touchable onPress={() => {
+                this.props.selectAlbum(id);
+                navigation.navigate("PhotoList", {title, numPhotos: photos.length});
             }}>
                 <View>
                     <View style={[styles.imageContainer, {width: viewDimension, height: viewDimension}]}>

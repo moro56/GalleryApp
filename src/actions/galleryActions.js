@@ -9,6 +9,8 @@ export const LOAD = "LOAD";
 export const LOAD_SUCCESS = "LOAD_SUCCESS";
 export const LOAD_ERROR = "LOAD_ERROR";
 
+export const SELECT_ALBUM = "SELECT_ALBUM";
+
 async function retrieveDataFromStorage() {
     try {
         const data = await AsyncStorage.getItem(SAVED_DATA_KEY);
@@ -61,4 +63,10 @@ export function getGalleryData() {
         }
         dispatch({type: LOAD_ERROR});
     };
+}
+
+export function selectAlbum(albumId) {
+    return (dispatch) => {
+        dispatch({type: SELECT_ALBUM, albumId});
+    }
 }

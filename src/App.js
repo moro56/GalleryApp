@@ -5,9 +5,11 @@ import {createStackNavigator} from 'react-navigation';
 
 import store from "./store/index";
 import AlbumList from "./features/album/AlbumList";
+import PhotoList from "./features/photo/PhotoList";
 
 const AppNavigator = createStackNavigator({
-    AlbumList: {screen: AlbumList}
+    AlbumList: {screen: AlbumList},
+    PhotoList: {screen: PhotoList}
 }, {
     initialRouteName: "AlbumList",
     navigationOptions: {

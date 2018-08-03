@@ -9,30 +9,30 @@ import PhotoList from "./features/photo/PhotoList";
 import PhotoDetails from "./features/photo/PhotoDetails";
 
 const AppNavigator = createStackNavigator({
-    AlbumList: {screen: AlbumList},
-    PhotoList: {screen: PhotoList},
-    PhotoDetails: {screen: PhotoDetails}
+  AlbumList: {screen: AlbumList},
+  PhotoList: {screen: PhotoList},
+  PhotoDetails: {screen: PhotoDetails}
 }, {
-    initialRouteName: "AlbumList",
-    navigationOptions: {
-        headerTintColor: "white",
-        headerStyle: {
-            backgroundColor: '#F44336'
-        }
+  initialRouteName: "AlbumList",
+  navigationOptions: {
+    headerTintColor: "white",
+    headerStyle: {
+      backgroundColor: '#F44336'
     }
+  }
 });
 
 type
-    Props = {};
+  Props = {};
 export default class App extends Component<Props> {
-    render() {
-        return (
-            <View style={{flex: 1}}>
-                <StatusBar backgroundColor="#D32F2F"/>
-                <Provider store={store}>
-                    <AppNavigator/>
-                </Provider>
-            </View>
-        );
-    }
+  render() {
+    return (
+      <View style={{flex: 1}}>
+        <StatusBar backgroundColor="#D32F2F" animated={true}/>
+        <Provider store={store}>
+          <AppNavigator/>
+        </Provider>
+      </View>
+    );
+  }
 }
